@@ -66,12 +66,37 @@ class singleLinkedList:
             else:
                 #Position is out of range 
                 print('Invalid position!')
-                
+    #Deleting an element
+    def delete_ele(self, ele):
+        #Empty list, nothing to delete
+        if(self.head) == None:
+            print("List is Empty")
+            return
+        #If element to delete is first element
+        if (self.head.data) == ele:
+            trav = self.head
+            self.head = trav.link
+            trav = None
+            return
+        #Traverse list to find element
+        trav = self.head
+        flag = False
+        while trav.link != None:
+            #If element is found; delete
+            if trav.link.data == ele:
+                temp = trav.link;
+                trav.link = temp.link
+                temp = None
+                flag = True
+            if trav.link:
+                trav = trav.link
+        if flag == False:
+            print("Element", ele, " not found!")            
     
     #Displaying/printing all the elements of the list
     def display(self):
         if (self.head) == None:
-            print("Empty")
+            print("List is Empty")
             return
         else:
             disp = self.head
