@@ -92,7 +92,24 @@ class singleLinkedList:
                 trav = trav.link
         if flag == False:
             print("Element", ele, " not found!")            
-    
+    #Search an element
+    def search_ele(self, ele):
+        #Empty list, nothing to search
+        if(self.head) == None:
+            print("List is Empty")
+            return
+        trv = self.head
+        spot = 0
+        found = False
+        while trv != None:
+            if trv.data == ele:
+                print(ele, "is present at position ", spot)
+                found = True
+            trv = trv.link
+            spot += 1
+        if found == False:
+            print(ele, 'is not present in the list')
+
     #Displaying/printing all the elements of the list
     def display(self):
         if (self.head) == None:
@@ -118,3 +135,13 @@ LL.insert_pos(0,3)
 LL.insert_pos(0,9)
 LL.insert_pos(0,0)
 LL.display()
+LL.delete_ele(0)
+LL.delete_ele(50)
+LL.delete_ele(99)
+LL.display()
+
+LL.insert_pos(0,2)
+LL.insert_pos(0,4)
+LL.display()
+LL.search_ele(0)
+LL.search_ele(13)
