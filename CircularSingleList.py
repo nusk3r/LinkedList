@@ -71,7 +71,23 @@ class circularSingle:
         #element provided is not present in the list, print error
         print('Element not found!')
         
-                
+    def  del_node(self, ele):
+        #When list is empty, print error
+        if self.head is None:
+            print('List is empty!')
+            return
+        #Element to delete is in head node
+        if self.head.data is ele:
+            #Update head by moving to next node
+            self.head = self.head.next
+        #Traverse to the node before to be deleted
+        trav = self.head
+        while trav.next is not self.head:
+            if trav.next.data is ele:
+                trav.next = trav.next.next
+                return
+            trav = trav.next
+        print('Element not found!')       
          
         
          
@@ -95,5 +111,10 @@ CSL.insert_end(30)
 CSL.insert_after(20, 25)
 CSL.insert_after(30, 40)
 CSL.insert_after(50, 55)
+CSL.display()
+CSL.del_node(25)
+CSL.del_node(10)
+CSL.del_node(40)
+CSL.del_node(45)
 CSL.display()
         
