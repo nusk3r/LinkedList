@@ -78,8 +78,15 @@ class circularSingle:
             return
         #Element to delete is in head node
         if self.head.data is ele:
+            #Traverse to last node and update pointer to head
+            trav = self.head
+            while trav.next is not self.head:
+                trav = trav.next
+            #Move pointer of last node to new head
+            trav.next = self.head.next
             #Update head by moving to next node
             self.head = self.head.next
+
         #Traverse to the node before to be deleted
         trav = self.head
         while trav.next is not self.head:
